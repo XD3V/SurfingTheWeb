@@ -19,8 +19,8 @@ app.use(routes)
 // Connect to the Mongo Db
 const mongoose = require("mongoose");
 console.log("Connecting to Mongoose");
-// mongoose.connect(process.env.MONGOD_URI || "mongodb+srv://admin:googleBooksApp@cluster0-2txa4.mongodb.net/test?retryWrites=true&w=majority", {
-mongoose.connect("mongodb+srv://Admin:Admin1@cluster0-g2fig.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/Web_Surfing_demo", {
+//mongoose.connect(`mongodb+srv://Admin:Admin1@cluster0-g2fig.mongodb.net/test?retryWrites=true&w=majority`, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 })
@@ -34,3 +34,7 @@ mongoose.connect("mongodb+srv://Admin:Admin1@cluster0-g2fig.mongodb.net/test?ret
 app.listen(PORT, function(){
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+
+//  git commit -m "updating the sever.js file so we can use our localhost database to test and see if everhting is running and worki 
+//ng properly."
