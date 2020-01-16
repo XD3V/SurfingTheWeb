@@ -28,6 +28,9 @@
     "core-util-is": "^1.0.2",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.8.7"
+    "mongoose": "^5.8.7",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "styled-components": "^4.4.1"
   }
 }
