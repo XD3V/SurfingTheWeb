@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const surfRoutes = require("./signin");
+const surfRoutes = require("./account");
 
 // surf routes
-router.use("/api", surfRoutes);
+router.use("/account", surfRoutes);
 
+//console.log("I'm api/index.js")
 module.exports = router;
