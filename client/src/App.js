@@ -1,7 +1,8 @@
 import React from 'react'
 // import ReactDOM from 'react-dom'
 import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer'
+import Card from './components/Card/index'
+import Footer from './components/Footer/footer.js'
 import { BrowserRouter } from 'react-router-dom'
 
 
@@ -19,8 +20,7 @@ export default class App extends React.Component {
       <BrowserRouter>
         <div>
           <Navbar />
-
-
+          <Card />
           <Footer />
         </div>
       </BrowserRouter>
@@ -28,5 +28,3 @@ export default class App extends React.Component {
     )
   }
 }
-
-
