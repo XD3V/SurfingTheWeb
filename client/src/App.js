@@ -1,7 +1,7 @@
 import React from 'react'
+//import Card from './components/Card/index'
 // import ReactDOM from 'react-dom'
 import Navbar from './components/Navbar/Navbar'
-//import Card from './components/Card/index'
 import Footer from './components/Footer/footer.js'
 import { BrowserRouter } from 'react-router-dom'
 import Cards from './components/Card/Cards'
