@@ -1,10 +1,10 @@
 import React from 'react'
 // import ReactDOM from 'react-dom'
 import Navbar from './components/Navbar/Navbar'
-import Card from './components/Card/index'
+//import Card from './components/Card/index'
 import Footer from './components/Footer/footer.js'
 import { BrowserRouter } from 'react-router-dom'
-
+import Cards from './components/Card/Cards'
 
 export default class App extends React.Component {
 
@@ -20,7 +20,7 @@ export default class App extends React.Component {
       <BrowserRouter>
         <div>
           <Navbar />
-          <Card />
+          <Cards />
           <Footer />
         </div>
       </BrowserRouter>

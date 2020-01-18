@@ -3,19 +3,19 @@ import './style.css';
 
 const Card = props => {
     return (
-
-        <div>
-            <div className="card">
-        <h3 className='card-title'>{props.title}</h3>
-    <p className='card-text'>
-    Count 
-        </p>
-        <p>Size</p>
-        <p>Tide</p>
-    </div>
-    </div>
+      <div className='card text-center shadow'>
+       
+        <div className='card-body text-dark'>
+          <h4 className='card-title'>{props.title}</h4>
+          <p className='card-text text-secondary'>
+            Description
+          </p>
+          <a href='#' className='btn btn-outline-success'>
+            Go To Beach
+          </a>
+        </div>
+      </div>
     );
-    
-};
-
-export default Card;
+  };
+   
+  export default Card;
