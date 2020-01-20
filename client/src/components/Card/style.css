@@ -1,0 +1,22 @@
+
+.card{
+    width: 20rem;
+    height: 20rem;
+    padding: 5px 5px 5px 5px;
+    margin: 10px;   
+    text-align: center;
+    background-color: rgba(192,192,192,0.55);
+    border: 1px solid cornflowerblue;
+
+}
+.card:hover {
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important;
+}
+
+#overflow {
+    overflow: hidden;
+  }
+
+  .container-fluid .row {
+    padding-top: 6rem;
+  }
