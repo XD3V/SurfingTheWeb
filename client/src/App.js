@@ -25,9 +25,34 @@ class App extends React.Component {
         fetch('/proxy/spot/all')
             .then(res => res.json())
             .then(json => {
+
+                let items_array = []
+
+                for(let i = 0; i < json.length; i++ ){
+                    
+                    if(json[i].spot_id == 638){
+                        let newObj = {
+                            county_name : json[i].county_name,
+                            latitude    : json[i].latitude,
+                            lonngitude  : json[i].lonngitude,
+                            spot_id     : json[i].spot_id,
+                            spot_name   : json[i].spot_name
+                        }
+                        items_array.push(newObj)
+                        console.log(json[i])
+                    } else {
+                        // ignore this spot 
+                    }
+                    
+
+                }
+
+                console.log("total items pushed", items_array.length)
+                console.log(items_array)
+
                 console.log('response is', json)
                 this.setState({
-                    items: json,
+                    items: items_array,
                     isLoaded: true, 
                 })
             }).catch((err) => {
@@ -40,29 +65,54 @@ class App extends React.Component {
         fetch('/proxy/spot/' + spot_id)
             .then( res => res.json())
             .then( json => {
-                
+
+                console.log(json)
                 this.setState({
-                    currentSpot : json,
-                    viewSpot    : true
+                    viewSpot    : true,
+                    currentSpot : json[0]
                 })
                 
+
             }).catch( (err) => {
                 console.log("Failed to fetch spot", err)
             })
     }
 
-    renderSpot(spot){
-        if(spot.error){
+    renderSpot(s){
+
+       
+        if(!this.state.currentSpot){ return <div></div>}
+        if(this.state.currentSpot.error){
             return (
                 <div>
-                    <h1> { spot.error_likely } </h1>
+                    <h1> { this.state.currentSpot.error_likely } </h1>
                 </div>
             )
         }
         
+        Object.keys(this.state.currentSpot).map( (key) => {
+            console.log(key)
+        })
+        
         return(
             <div>
                 <h1> VIEW SPOT </h1>
+                <p> `Date : ${this.state.currentSpot.date}` </p>
+                <p> `Day  : ${this.state.currentSpot.day}` </p>
+                <p> `GMT : ${this.state.currentSpot.gmt}` </p>
+                <p> `hour : ${this.state.currentSpot.hour}` </p>
+                <p> `latitude : ${this.state.currentSpot.latitude}` </p>
+                <p> `lonngitude : ${this.state.currentSpot.lonngitude}` </p>
+                <p> `shape : ${this.state.currentSpot.shape}` </p>
+                <p> `shape_detail : ${this.state.currentSpot.shape_detail.toString()}` </p>
+                <p> `shape_full : ${this.state.currentSpot.shape_full}` </p>
+                <p> `size : ${this.state.currentSpot.size}` </p>
+                <p> `size in feet : ${this.state.currentSpot.size_ft}` </p>
+                <p> `spot id : ${this.state.currentSpot.spot_id}` </p>
+                <p> `spot name : ${this.state.currentSpot.spot_name}` </p>
+                <p> `warnings : ${this.state.currentSpot.warnings.toString()}` </p>
+
+
                 <h1
                     onClick={ (e) => {
                         this.setState({
@@ -70,7 +120,7 @@ class App extends React.Component {
                         })
                     }}
                 > BACK BUTTON </h1>
-                {spot.id}
+                
             </div>
         )
     }
@@ -79,9 +129,9 @@ class App extends React.Component {
         
     render() {
 
-        const { isLoaded, items } = this.state;
 
-        if (!isLoaded) return <div>Loading...</div>;
+
+        if (!this.state.isLoaded) return <div>Loading...</div>;
 
         if(this.state.viewSpot) {
             return this.renderSpot(this.state.currentSpot)
@@ -91,20 +141,22 @@ class App extends React.Component {
             <div className="App">
                 <ul>
 
-                    {items.map(item => (
+                    {this.state.items.map(item => {
 
-                        <li 
-                            key={item.id}
-                            onClick={(e) => {
-                                console.log( item.spot_id ) 
-                                this.getSpot(item.spot_id)
+                        console.log( "CURRENT ITEM IS", item )
+                        return (
+                            <li 
+                                key={item.spot_id}
+                                onClick={(e) => {
+                                    console.log( item.spot_id ) 
+                                    this.getSpot(item.spot_id)
                                                               
-                            }}
+                                }}
                             >
-                            Size: {item.size} | Name: {item.spot_name} | County: {item.county_name} 
+                            Name: {item.spot_name} | County: {item.county_name} 
                         </li>
-
-                    ))}
+                        )
+                    })}
                 </ul>
             </div>
         );
