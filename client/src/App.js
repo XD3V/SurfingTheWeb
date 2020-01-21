@@ -17,6 +17,8 @@ class App extends React.Component {
 
     }
 
+    pre_approved_spots = [397, 638]
+
     // component was mounted
     componentDidMount() {
 
@@ -30,7 +32,7 @@ class App extends React.Component {
 
                 for(let i = 0; i < json.length; i++ ){
                     
-                    if(json[i].spot_id == 638){
+                    if( this.pre_approved_spots.includes( json[i].spot_id ) ){
                         let newObj = {
                             county_name : json[i].county_name,
                             latitude    : json[i].latitude,
