@@ -17,6 +17,8 @@ class App extends React.Component {
 
     }
 
+    // this is a change
+
     pre_approved_spots = [397, 638]
 
     // component was mounted
