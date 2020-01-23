@@ -22,13 +22,7 @@ import { theme } from './theme'
 ReactDOM.render(
     <Router>
         <ThemeProvider theme={theme}>
-            <App>
-                <Switch>
-                    <Route exact path="/" component={Navbar} />
-                    {/* <Route exact path="api/account/signup" component={signin} /> */}
-                    {/* <Route component={NotFound} /> */}
-                </Switch>
-            </App>
+            <App />
         </ThemeProvider>
     </Router>
     , document.getElementById('root'));
