@@ -12,7 +12,6 @@ class App extends React.Component {
             isLoaded: false,
             currentSpot : null,
             viewSpot    : false,
-            
         }
 
     }
