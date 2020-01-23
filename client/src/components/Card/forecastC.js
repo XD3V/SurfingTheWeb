@@ -78,20 +78,6 @@ class Cards extends Component {
                 </div>
               } />
             </div>
-            <div className='col-md-4'>
-              <Card title='Beach 2' title={
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              } />
-            </div>
-            <div className='col-md-4'>
-              <Card title='Beach 3' title={
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              } />
-            </div>
           </div>
         </div>
       )
