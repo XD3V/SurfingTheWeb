@@ -1,68 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SurfingTheWeb 
 
-## Available Scripts
+## **LINK**
+- [WebSurfing](https://github.com/XD3V/WebSurfing)
 
-In the project directory, you can run:
+## **Target Audience** 
+1. Surfers 
+2. Time-Savers
+3. Out-Goers 
+4. Planners
+5. Beach-Lovers
 
-### `npm start`
+## **What Problem Are We Seeking To Solve** 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Have you ever felt like the best way to relax after a hard day's work is to just enjoy the waves and surf till your heart's content, so all that stress can just drift away? Yet, whenever you try to go and relieve some of that stress it always seems that the beach just does not have that perfect wave that you need. Well with this app checking the tides is just one click away from finding that perfect wave without the headache of wasting time from catching that perfect wave.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+## **Primary Goal**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### We are here to bring a free and easy way for surfers to find their desired beach and see in realtime the waves as well as an accurate forecast of the tides, swell, wind,etc..
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+##  **Created By** 
+- [Dior Christian ](https://github.com/Diorfuego)
+- [Berenice Kelly ](https://github.com/bkelly808)
+- [Halima Todd ](https://github.com/limabean30)
+- [Richard  Mazel](https://github.com/richardmmy28)
+- [Xavier Davis ](https://github.com/XD3V)

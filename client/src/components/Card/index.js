@@ -1,18 +1,21 @@
-// vvvvvvvv This is just sample code if you dont need it just delete it vvvvvvvvvvv
+import React, { Component } from 'react';
+import './style.css';
 
-// import React from "react";
-// import "./style.css";
-
-// // The ...props means, spread all of the passed props onto this element
-// // That way we don't have to define them all individually
-
-// export function Input(props) {
-//     return (
-//       <div className="form-group">
-//         <input className="form-control" {...props} />
-//       </div>
-//     );
-//   }
-
-// vvvvvvv If you do not use export function then you this example down below vvvvvvvv
-// export default DeleteBtn;
+const Card = props => {
+    return (
+      <div className='card text-center shadow'>
+       
+        <div className='card-body text-dark'>
+          <h4 className='card-title'>{props.title}</h4>
+          <p className='card-text text-secondary'>
+            Description
+          </p>
+          <a href='#' className='btn btn-outline-success'>
+            Go To Beach
+          </a>
+        </div>
+      </div>
+    );
+  };
+   
+  export default Card;
