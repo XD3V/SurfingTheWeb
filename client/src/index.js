@@ -7,7 +7,7 @@ import {
     Switch
 } from 'react-router-dom'
 //import Home from './components/Home';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 //import signin from '../../routes/api/signin'
 import App from './App';
 import './index.css';

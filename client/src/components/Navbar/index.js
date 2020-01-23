@@ -1,18 +1,19 @@
-// vvvvvvvv This is just sample code if you dont need it just delete it vvvvvvvvvvv
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-// import React from "react";
-// import "./style.css";
+import { ThemeProvider } from 'styled-components'
+import { theme } from './theme'
 
-// // The ...props means, spread all of the passed props onto this element
-// // That way we don't have to define them all individually
+ReactDOM.render(
+    <ThemeProvider theme = { theme}>
+        <App />
+    </ThemeProvider>
+, document.getElementById('root'));
 
-// export function Input(props) {
-//     return (
-//       <div className="form-group">
-//         <input className="form-control" {...props} />
-//       </div>
-//     );
-//   }
-
-// vvvvvvv If you do not use export function then you this example down below vvvvvvvv
-// export default DeleteBtn;
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

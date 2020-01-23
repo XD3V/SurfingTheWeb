@@ -11,24 +11,10 @@ const MyNavbar = styled.div`
     overflow-x: hidden;
 `
 // Root component of the entire navbar 
-export default class Navbar extends Component {
+class Navbar extends Component {
 
     state = {
         displayMobileNavbar: true
-    }
-
-    toggleMobileNavbar = () => {
-        // this.setState( prevState => {
-        //     console.log(prevState);
-        //     return { displayMobileNavbar: !prevState.displayMobileNavbar }
-        // })
-
-        // console.log(this.state)
-        console.log(this.state);
-        this.setState({
-            displayMobileNavbar: !this.state.displayMobileNavbar
-        });
-        console.log(this.state);
     }
 
     componentDidMount = () => {
@@ -37,6 +23,14 @@ export default class Navbar extends Component {
 
     componentWillMount = () => {
         window.removeEventListener('resize', this.checkAndAutoHideMobileNavbar)
+    }
+
+    toggleMobileNavbar = () => {
+        console.log("Change mobile");
+        this.setState( prevState => {
+            console.log(prevState);
+            return { displayMobileNavbar: !prevState.displayMobileNavbar }
+        }) 
     }
 
     checkAndAutoHideMobileNavbar = () => {
@@ -52,9 +46,13 @@ export default class Navbar extends Component {
     render() {
         return (
             <MyNavbar>
-                <DesktopNavBar toggleMobileNavbar = { this.toggleMobileNavbar }/>
+                <DesktopNavBar 
+                displayMobileNavbar = { this.state.displayMobileNavbar}
+                toggleMobileNavbar = { this.toggleMobileNavbar } />
                 <MobileNavbar displayMobileNavbar = { this.state.displayMobileNavbar} />
             </MyNavbar>
         );
     }
 }
+
+export default Navbar
