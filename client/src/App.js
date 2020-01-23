@@ -18,7 +18,9 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/home" cdomponent={Home} />
+          {/* <Route exact path="/home/detail/La-Jolla" component={laJolla} /> */}
+          {/* <Route exact path="/home/detail/Mission-Beach" component={missionBeach} /> */}
           <Route component={NoMatch} />
         </Switch>
       </div>
