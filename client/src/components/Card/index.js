@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 
-const Card = props => {
+export const Card = props => {
     return (
       <div className='card text-center shadow'>
        
@@ -17,5 +17,23 @@ const Card = props => {
       </div>
     );
   };
+
+export const Cards = props => {
+    return (
+      <div className='container-fluid d-flex justify-content-center'>
+        <div className='row'>
+          <div className='col-md-4'>
+            <Card title='Beach Name' />
+          </div>
+          <div className='col-md-4'>
+            <Card title='Beach 2' />
+          </div>
+          <div className='col-md-4'>
+            <Card title='Beach 3' />
+          </div>
+        </div>
+      </div>
+    );
+  };
    
-  export default Card;
+//   export default Card;
