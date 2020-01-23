@@ -15,7 +15,7 @@ const Navlinks = props => {
             <Link to= "/about" className="link" tabIndex = { tempTabIndex }>Beach Spots</Link>
         </li>
         <li>
-            <Link to= "/contact" className="link" tabIndex = { tempTabIndex }>Login Page</Link>
+            <Link to= "/login" className="link" tabIndex = { tempTabIndex }>Login Page</Link>
         </li>
 
     </ul>

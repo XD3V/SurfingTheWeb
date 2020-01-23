@@ -41,8 +41,15 @@ html {
     
 }
 
+main{
+    min-height: calc(100vh - 190px);
+    display: flex;
+}
+
+
 .form-wrapper {
     display: flex;
+    width:100%;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -75,6 +82,10 @@ form#login .form-control:focus {
   form#login .custom-control-label {
     font-weight: 400;
   }
+  form#login input {
+    margin: 0 0 0 10px;
+    padding: 0.25rem;
+  }
 
   form#login .forgot-password,
   form#login .forgot-password a {
@@ -89,4 +100,17 @@ form#login .form-control:focus {
     color: #167bff;
   }
 
+  form#login .form-group {
+      display: flex;
+  }
 
+ form#login .form-group label { 
+     width: 120px;
+ }
+
+ form#login button[type=submit] {
+    padding: 0.5rem;
+    background-color: #297dc5;
+    color: white;
+    border-radius: 10px;
+ }
