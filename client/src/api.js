@@ -169,4 +169,4 @@ class App extends React.Component {
 
 }
 
-export default Api;
+export default App;
