@@ -14,6 +14,8 @@ import NoMatch from "./pages/noMatch";
 //import Footer from './components/Footer/footer.js'
 //import { BrowserRouter } from 'react-router-dom'
 
+import details from "./pages/copydetails";
+
 function App() {
   return (
     <Router>
@@ -23,7 +25,11 @@ function App() {
           <Route exact path="/home" component={Home} />
           {/* <Route exact path="/home/detail/La-Jolla" component={laJolla} /> */}
           {/* <Route exact path="/home/detail/Mission-Beach" component={missionBeach} /> */}
+<<<<<<< HEAD
+          <Route exact path="/details" component={details} /> 
+=======
           {/* <Route exact path="/test" component={testDum} /> */}
+>>>>>>> dfd723e357229cc787052fec1789229706c4817f
           <Route component={NoMatch} />
         </Switch>
       </div>
