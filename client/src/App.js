@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import NoMatch from "./pages/noMatch";
+import API from 'API';
+
 //import Cards from './components/Card/Cards'
 //import Detail from "./pages/beachdetails";
 //import Nav from './components/Navbar/Navbar'

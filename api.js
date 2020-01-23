@@ -19,7 +19,7 @@ class App extends React.Component {
 
     // this is a change
 
-    pre_approved_spots = [397, 638]
+    pre_approved_spots = [397, 638, 1, 10, 200, 201, 202, 203, 204, 205]
 
     // component was mounted
     componentDidMount() {
@@ -169,4 +169,4 @@ class App extends React.Component {
 
 }
 
-export default App;
+export default Api;
