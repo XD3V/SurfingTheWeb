@@ -2,12 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import NoMatch from "./pages/noMatch";
-<<<<<<< HEAD
-import API from 'API';
-
-=======
 // import testDum from "./pages/demo"
->>>>>>> dfd723e357229cc787052fec1789229706c4817f
 //import Cards from './components/Card/Cards'
 //import Detail from "./pages/beachdetails";
 //import Nav from './components/Navbar/Navbar'
