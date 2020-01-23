@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import NoMatch from "./pages/noMatch";
-import testDum from "./pages/demo"
+// import testDum from "./pages/demo"
 //import Cards from './components/Card/Cards'
 //import Detail from "./pages/beachdetails";
 //import Nav from './components/Navbar/Navbar'
@@ -24,7 +24,11 @@ function App() {
           <Route exact path="/home" component={Home} />
           {/* <Route exact path="/home/detail/La-Jolla" component={laJolla} /> */}
           {/* <Route exact path="/home/detail/Mission-Beach" component={missionBeach} /> */}
+<<<<<<< HEAD
           <Route exact path="/details" component={details} /> 
+=======
+          {/* <Route exact path="/test" component={testDum} /> */}
+>>>>>>> dfd723e357229cc787052fec1789229706c4817f
           <Route component={NoMatch} />
         </Switch>
       </div>

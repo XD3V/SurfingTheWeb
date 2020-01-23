@@ -1,4 +1,4 @@
-import api from "../../api"
+import api from "../api"
 import React, { Component } from "react";
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/footer'
