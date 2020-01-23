@@ -23,6 +23,7 @@ function App() {
   return (
     <Router><>
         <Navbar />
+        <main>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
@@ -33,7 +34,7 @@ function App() {
           {/* <Route exact path="/details" component={details} />  */}
           <Route component={NoMatch} />
         </Switch>
-
+        </main>
         <Footer /></>
     </Router>
   );
