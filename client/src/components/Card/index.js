@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './style.css';
 
 const Card = props => {
-    return (
+  return (
+    <div className='container-fluid d-flex justify-content-center'>
       <div className='card text-center shadow'>
-       
+
         <div className='card-body text-dark'>
           <h4 className='card-title'>{props.title}</h4>
           <p className='card-text text-secondary'>
@@ -15,7 +16,8 @@ const Card = props => {
           </a>
         </div>
       </div>
-    );
-  };
-   
-  export default Card;
+    </div>
+  );
+};
+
+export default Card;

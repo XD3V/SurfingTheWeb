@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import NoMatch from "./pages/noMatch";
+import testDum from "./pages/demo"
 //import Cards from './components/Card/Cards'
 //import Detail from "./pages/beachdetails";
 //import Nav from './components/Navbar/Navbar'
@@ -18,9 +19,10 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" cdomponent={Home} />
+          <Route exact path="/home" component={Home} />
           {/* <Route exact path="/home/detail/La-Jolla" component={laJolla} /> */}
           {/* <Route exact path="/home/detail/Mission-Beach" component={missionBeach} /> */}
+          <Route exact path="/test" component={Home} />
           <Route component={NoMatch} />
         </Switch>
       </div>
