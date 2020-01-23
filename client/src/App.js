@@ -14,6 +14,8 @@ import testDum from './pages/demo'
 //import Footer from './components/Footer/footer.js'
 //import { BrowserRouter } from 'react-router-dom'
 
+import details from "./pages/copydetails";
+
 function App() {
   return (
     <Router>
@@ -24,6 +26,7 @@ function App() {
           {/* <Route exact path="/home/detail/La-Jolla" component={laJolla} /> */}
           {/* <Route exact path="/home/detail/Mission-Beach" component={missionBeach} /> */}
           { /*<Route exact path="/test" component={testDum} /> */ }
+          <Route exact path="/details" component={details} /> 
           <Route component={NoMatch} />
         </Switch>
       </div>
