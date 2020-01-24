@@ -14,7 +14,7 @@ const MyNavbar = styled.div`
 class Navbar extends Component {
 
     state = {
-        displayMobileNavbar: true
+        displayMobileNavbar: false
     }
 
     componentDidMount = () => {
