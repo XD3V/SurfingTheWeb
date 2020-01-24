@@ -9,6 +9,9 @@ const Navlinks = props => {
     return (
         <ul className="nav-links">
         <li>
+            <Link to= "/" className="link" tabIndex = { tempTabIndex }>Homepage</Link>
+        </li>
+        <li>
             {/* <Link to="/" className= "link" tabIndex = { tempTabIndex }>Favorites</Link> */}
         </li>
         <li>
@@ -17,6 +20,7 @@ const Navlinks = props => {
         <li>
             <Link to= "/login" className="link" tabIndex = { tempTabIndex }>Login Page</Link>
         </li>
+
 
     </ul>
     )    
