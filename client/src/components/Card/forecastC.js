@@ -1,43 +1,55 @@
 import React, { Component } from "react";
-import Card from './index';
+import {Card} from './index';
 import './style.css';
+import Cards from './Cards'
+
 
 // these are the cards of the respective different beaches
 
-class Cards extends Component {
+class detailCard extends Component {
 
   constructor(props) {
+   
     super(props)
     this.state = {
       items: [],
       isLoaded: false
+      
     }
   }
 
   // pre approved spots array 
   pre_approved_spots = [397, 638, 1, 10, 200, 201, 202, 203, 204, 205]
 
-
   // component was mounted
   componentDidMount() {
+// grabs the url id
+// let id = window.location.href;
+// console.log(id.match(/[0-9]/));
 
-    console.log('going to fetch now')
+    // console.log('going to fetch now')
+    // // pre-fetch data to populate UI before it is rendered
+    // fetch('/proxy/spot/forecast/'+id.match(/[0-9]/)+'/')
+    //   .then(res => res.json())
+    //   .then(json => {
+
+  // 
+      //var approved_spots = this.pre_approved_spots.includes(json[i].spot_id);
     // pre-fetch data to populate UI before it is rendered
-    fetch('/proxy/spot/all')
+    fetch('/proxy/spot/forecast/'+props.propsName+'/')
       .then(res => res.json())
       .then(json => {
-
         let items_array = []
 
         for (let i = 0; i < json.length; i++) {
 
           if (this.pre_approved_spots.includes(json[i].spot_id)) {
             let newObj = {
-              county_name: json[i].county_name,
-              latitude: json[i].latitude,
-              lonngitude: json[i].lonngitude,
-              spot_id: json[i].spot_id,
-              spot_name: json[i].spot_name
+              spot_name: json[i].spot_name,
+              spot_id: json[i].shape_detail.wind,
+              swell: json[i].lonngitude,
+              wind: json[i].shape_detail.wind,
+              tide: json[i].shape_detail.tide
             }
             items_array.push(newObj)
             console.log(json[i])
@@ -58,7 +70,7 @@ class Cards extends Component {
         })
       }).catch((err) => {
         console.log(err);
-      });
+      })
   };
 
 
@@ -93,7 +105,8 @@ class Cards extends Component {
 
           <div className='row'>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[0].spot_name} county={this.state.items[0].county_name} spot_id={this.state.items[0].spot_id} />
+              <Card title='Beach Name' title={this.state.items[0].spot_name} spot_id={this.state.items[0].spot_id}
+              swell={this.state.items[0].shape_detail.swell} tide={this.state.items[0].shape_detail.tide} wind={this.state.items[0].shape_detail.wind} />
             </div>
             <div className='col-md-2'>
               <Card title='Beach Name' title={this.state.items[1].spot_name} county={this.state.items[1].county_name} spot_id={this.state.items[1].spot_id} />
@@ -138,4 +151,4 @@ class Cards extends Component {
   }
 }
 
-export default Cards;
+export default detailCard;

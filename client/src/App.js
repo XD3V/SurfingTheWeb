@@ -4,7 +4,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import NoMatch from "./pages/noMatch";
 import API from './api';
-import testDum from './pages/demo'
+import beachDetails from './pages/beachdetails'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/footer'
 //import Cards from './components/Card/Cards'
@@ -28,10 +28,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
-          {/* <Route exact path="/home/detail/La-Jolla" component={laJolla} /> */}
-          {/* <Route exact path="/home/detail/Mission-Beach" component={missionBeach} /> */}
-          { /*<Route exact path="/test" component={testDum} /> */ }
-          {/* <Route exact path="/details" component={details} />  */}
+       
+          <Route exact path="/home/detail/" component={beachDetails} /> 
           <Route component={NoMatch} />
         </Switch>
         </main>

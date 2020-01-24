@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Card from './index';
+import {Cards}from './index';
 import './style.css';
+import Forecast from './forecastC'
+// these are the Cardss of the respective different beaches
 
-// these are the cards of the respective different beaches
-
-class Cards extends Component {
+class navCards extends Component {
 
   constructor(props) {
     super(props)
@@ -60,10 +60,6 @@ class Cards extends Component {
         console.log(err);
       });
   };
-
-
-
-
   render() {
 
     // beaches are still loading from API
@@ -72,21 +68,21 @@ class Cards extends Component {
         <div className='container-fluid d-flex justify-content-center'>
           <div className='row'>
             <div className='col-md-4'>
-              <Card title='Beach Name' title={
+              <Cards title='Beach Name' title={
                 <div className="spinner-border" role="status">
                   <span className="sr-only">Loading...</span>
                 </div>
               } />
             </div>
             <div className='col-md-4'>
-              <Card title='Beach 2' title={
+              <Cards title='Beach 2' title={
                 <div className="spinner-border" role="status">
                   <span className="sr-only">Loading...</span>
                 </div>
               } />
             </div>
             <div className='col-md-4'>
-              <Card title='Beach 3' title={
+              <Cards title='Beach 3' title={
                 <div className="spinner-border" role="status">
                   <span className="sr-only">Loading...</span>
                 </div>
@@ -107,19 +103,20 @@ class Cards extends Component {
 
           <div className='row'>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[0].spot_name} county={this.state.items[0].county_name} spot_id={this.state.items[0].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[0].spot_name} county={this.state.items[0].county_name} spot_id={this.state.items[0].spot_id} />
+              
             </div>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[1].spot_name} county={this.state.items[1].county_name} spot_id={this.state.items[1].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[1].spot_name} county={this.state.items[1].county_name} spot_id={this.state.items[1].spot_id} />
             </div>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[2].spot_name} county={this.state.items[2].county_name} spot_id={this.state.items[2].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[2].spot_name} county={this.state.items[2].county_name} spot_id={this.state.items[2].spot_id} />
             </div>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[3].spot_name} county={this.state.items[3].county_name} spot_id={this.state.items[3].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[3].spot_name} county={this.state.items[3].county_name} spot_id={this.state.items[3].spot_id} />
             </div>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[4].spot_name} county={this.state.items[4].county_name} spot_id={this.state.items[4].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[4].spot_name} county={this.state.items[4].county_name} spot_id={this.state.items[4].spot_id} />
             </div>
           </div>
 
@@ -129,19 +126,19 @@ class Cards extends Component {
         <div className='container-fluid d-flex justify-content-center'>
           <div className='row'>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[5].spot_name} county={this.state.items[5].county_name} spot_id={this.state.items[5].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[5].spot_name} county={this.state.items[5].county_name} spot_id={this.state.items[5].spot_id} />
             </div>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[6].spot_name} county={this.state.items[6].county_name} spot_id={this.state.items[6].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[6].spot_name} county={this.state.items[6].county_name} spot_id={this.state.items[6].spot_id} />
             </div>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[7].spot_name} county={this.state.items[7].county_name} spot_id={this.state.items[7].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[7].spot_name} county={this.state.items[7].county_name} spot_id={this.state.items[7].spot_id} />
             </div>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[8].spot_name} county={this.state.items[8].county_name} spot_id={this.state.items[8].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[8].spot_name} county={this.state.items[8].county_name} spot_id={this.state.items[8].spot_id} />
             </div>
             <div className='col-md-2'>
-              <Card title='Beach Name' title={this.state.items[9].spot_name} county={this.state.items[9].county_name} spot_id={this.state.items[9].spot_id} />
+              <Cards title='Beach Name' title={this.state.items[9].spot_name} county={this.state.items[9].county_name} spot_id={this.state.items[9].spot_id} />
             </div>
           </div>
         </div>
@@ -152,4 +149,4 @@ class Cards extends Component {
   }
 }
 
-export default Cards;
+export default navCards;
