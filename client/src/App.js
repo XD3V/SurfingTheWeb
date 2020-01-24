@@ -38,7 +38,7 @@ function App() {
   );
 }
 // These pages are not yet ready:
-//        <Route exact path="/details" component={Detail} />
+//        <Route exact path="/details" component={Detail} /> 
 //        <Route exact path ="/favorites" component={myFavorites} />
 
 

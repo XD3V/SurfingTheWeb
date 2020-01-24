@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+  
+import React, { Component } from "react"
 import {Cards}from './index';
 import './style.css';
 import Forecast from './forecastC'
 // these are the Cardss of the respective different beaches
 
-class navCards extends Component {
+class navCards extends Component{
 
   constructor(props) {
     super(props)

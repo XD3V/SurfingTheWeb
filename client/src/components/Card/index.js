@@ -25,7 +25,7 @@ export const Card = props => {
     <div className='card text-center shadow'>
 
       <div className='card-body text-dark'>
-      <Forecast propsName={this.state.items[0].spotId} />
+        {/* <Forecast propsName={this.state.items[0].spotId} /> */}
         <h4 className='card-title'>{props.title}</h4>
         <p className='card-text text-secondary'>
           Swell:{props.swell}
