@@ -13,7 +13,7 @@ class details extends Component{
 
     componentDidMount(){
         //api axios goes here//
-        Axios.get("http://api.spitcast.com/api/spot/forecast/397/")
+        Axios.get("http://api.spitcast.com/api/spot/forecast/205/")
         .then(result => {
             console.log(result);
             console.log(result.data[0]);
@@ -33,7 +33,7 @@ class details extends Component{
             //     <p>Beach info</p>
             // </Cards>
             <Card 
-            title="Mission Beach"
+            title="Mailbu"
             swell={this.state.data.swell}
             tide={this.state.data.tide}
             wind={this.state.data.wind}
