@@ -64,7 +64,7 @@ router.get('/proxy/spot/:id', (req, res, next) => {
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/public"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 //console.log(" I am index.js for api")

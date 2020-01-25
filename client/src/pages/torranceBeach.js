@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 // import {Navbar} from 'react-bootstrap';
 import Axios from "axios";
@@ -13,7 +14,7 @@ class details extends Component{
 
     componentDidMount(){
         //api axios goes here//
-        Axios.get("http://api.spitcast.com/api/spot/forecast/397/")
+        Axios.get("http://api.spitcast.com/api/spot/forecast/200/")
         .then(result => {
             console.log(result);
             console.log(result.data[0]);
@@ -33,7 +34,7 @@ class details extends Component{
             //     <p>Beach info</p>
             // </Cards>
             <Card 
-            title="Mission Beach"
+            title="Torrance Beach"
             swell={this.state.data.swell}
             tide={this.state.data.tide}
             wind={this.state.data.wind}
