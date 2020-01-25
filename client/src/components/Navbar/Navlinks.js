@@ -9,7 +9,7 @@ const Navlinks = props => {
     return (
         <ul className="nav-links">
         <li>
-            <Link to= "/" className="link" tabIndex = { tempTabIndex }>Homepage</Link>
+            {/* <Link to= "/" className="link" tabIndex = { tempTabIndex }>Homepage</Link> */}
         </li>
         <li>
             {/* <Link to="/" className= "link" tabIndex = { tempTabIndex }>Favorites</Link> */}
