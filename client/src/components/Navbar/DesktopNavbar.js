@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
 import Navlinks from './Navlinks'
+import { Link } from 'react-router-dom'
 import mobileNavIcon from '../../images/mobile-nav-icon.svg'
 
 const MyDesktopNavbar = styled.nav`
@@ -93,7 +94,10 @@ const DesktopNavbar = props => {
     console.log("Desktop");
     return ( 
         <MyDesktopNavbar>
-            <div className="logo"> WebSurfing </div>
+             <Link to= "/" className="link">
+
+            <div className="logo"> WebSurfing </div> </Link>
+        
             <Navlinks />
 
                 <MyMobileNavButton

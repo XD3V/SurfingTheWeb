@@ -15,10 +15,10 @@ const Navlinks = props => {
             {/* <Link to="/" className= "link" tabIndex = { tempTabIndex }>Favorites</Link> */}
         </li>
         <li>
-            <Link to= "/about" className="link" tabIndex = { tempTabIndex }>Beach Spots</Link>
+            {/* <Link to= "/about" className="link" tabIndex = { tempTabIndex }>Beach Spots</Link> */}
         </li>
         <li>
-            <Link to= "/login" className="link" tabIndex = { tempTabIndex }>Login Page</Link>
+            <Link to= "/home/login" className="link" tabIndex = { tempTabIndex }>Login Page</Link>
         </li>
 
 
