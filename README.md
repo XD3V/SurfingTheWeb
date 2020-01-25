@@ -1,7 +1,7 @@
 # SurfingTheWeb 
 
 ## **LINK**
-- [WebSurfing](https://github.com/XD3V/WebSurfing)
+- [WebSurfing](https://surfing-the-web.herokuapp.com/)
 
 ## **Target Audience** 
 1. Surfers 
