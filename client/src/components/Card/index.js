@@ -25,7 +25,8 @@ export const Card = props => {
     <div className='card text-center shadow'>
 
       <div className='card-body text-dark'>
-      <h4 className='card-title'>{props.title}</h4>
+      <h1 className='card-title'>{props.title}</h1>
+
          <h4 className='card-title'>Tide:{props.tide}</h4>
         <h4 className='card-title'>Swell:{props.swell}</h4>
         <h4 className='card-title'>Wind:{props.wind}</h4>
