@@ -1,57 +1,79 @@
 const User = require('../../models/user');
 const UserSession = require('../../models/userSession');
+const bcrypt = require('bcryptjs');
+let router = require("express").Router();
 
-const router = require("express").Router();
-
-router.post('/signup', function (req, res, next) {
+// Begining of the sign up function
+router.post('/signup', (req, res, next) => {
 
     console.log("WE ARE HERE")
 
     const { body } = req;
-    const {
-        firstName,
-        lastName,
+    let {
+        // firstName,
+        // lastName, 
+        username,
         password
     } = body;
 
     let {
+        // username,
         email
     } = body;
 
-    if (!firstName) {
 
-        res.send({
+    // if (!firstName) {
+
+    //     res.send({
+    //         success: false,
+    //         message: 'Error: First name cannot be blank'
+    //     });
+    //     next("Error, invalid name")
+    // } if (!lastName) {
+    //     res.send({
+    //         success: false,
+    //         message: 'Error: Last name cannot be blank'
+    //     });
+    //     next("Error, invalid last name")
+    // } 
+
+
+    if (!username) {
+        // we need to return res.send since the vaule of the application is trying to send and render at the same time causing us to get this error
+        //Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+         res.send({
             success: false,
-            message: 'Error: First name cannot be blank'
+            message: 'Error: Username cannot be blank'
         });
-        next("Error, invalid name")
-    } if (!lastName) {
-        res.send({
-            success: false,
-            message: 'Error: Last name cannot be blank'
-        });
-        next("Error, invalid last name")
-    } if (!email) {
+        return next("Error, invalid username")
+    }
+    if (!email) {
         res.send({
             success: false,
             message: 'Error: Email cannot be blank'
         });
-        next("Error, invalid email")
-    } if (!password) {
+        return next("Error, invalid email")
+    }
+    if (!password) {
         res.send({
             success: false,
             message: 'Error: Password name cannot be blank'
         });
-        next("Error, invalid password")
+        return next("Error, invalid password")
     }
+    console.log(body)
     email = email.toLowerCase();
     // steps:
     // 1. verify email doesnt exist
     // 2. save it
     console.log("here")
+
+
+    //creating a new user while checking to see if there is another dublipcate of that user.
     User.find({
-        email: email
-    }, (err, previousUsers,users) => {
+        email: email,
+        username: username
+    }, (err, previousUsers, users) => {
         if (err) {
             res.send({
                 success: false,
@@ -66,12 +88,14 @@ router.post('/signup', function (req, res, next) {
             return next("error, account already exists")
         }
         // Save the new user
-        const newUser = new User();
+        let newUser = new User();
 
         newUser.email = email;
-        newUser.firstName = firstName;
-        newUser.lastName = lastName;
-        newUser.password = newUser.generateHash(password);
+        newUser.username = username;
+        // newUser.firstName = firstName;
+        // newUser.lastName = lastName;
+        //newUser.password = newUser.generateHash(password);
+        newUser.password = password;
         newUser.save((err, user) => {
 
             // If there is a error with newUser it reports it
@@ -87,54 +111,13 @@ router.post('/signup', function (req, res, next) {
                 return next(null)
             }
         });
-   
-     // Once the user signs in they should automatically be signed into a session
-     const user = users[0];
-     if (!user.validPassword(password)) {
-         res.send({
-             success: false,
-             message: 'Error: Invalid'
-         });
-         next(null)
-      } 
-     else {
-         res.json( "Your password is vaild" )
-         return next(null)
-     }
+    });
+});
 
-     
-     const userSession = new UserSession();
-     userSession.userId = user._id;
-     userSession.save((err, doc) => {
-         if (err) {
-             console.log(err)
-             res.send({
-                 success: false,
-                 message: 'Error: server error'
-             });
-             next(err)
-         } else {
-             res.send({
-                 success: true,
-                 message: 'Valid sign in',
-                 token: doc._id
-             })
-             next(null)
-         }
-
-
-     });
-
-    });  
-})
-
-
-router.post('/signin', function (req, res, next) {
+router.post('/signin', (req, res, next) => {
     const { body } = req;
     const {
-        firstName,
-        lastName,
-        password
+        password,
     } = body;
 
     let {
@@ -143,58 +126,69 @@ router.post('/signin', function (req, res, next) {
 
 
     if (!email) {
-        res.send({
+        return res.send({
             success: false,
             message: 'Error: Email cannot be blank'
         });
 
-        next("Email Invalid")
-        
-
-    } 
-
-    if (!password) {
-        res.send({
+    } if (!password) {
+        return res.send({
             success: false,
             message: 'Error: Password name cannot be blank'
         });
-        next("Invalid Password")
-     }
-     else{
-        res.json("Your password and email is vaild")
-        return next(null)
     }
     email = email.toLowerCase();
+//Creating the login auth funtion for the sigin page
+User.getAuthenticated(email, password, function (err, userPer, reason) {
+    if (err) throw err;
 
+    // login was successful if we have a user
+    if (userPer) {
+        // handle login success
+        console.log('login success');
+        return;
+    }
 
+    // otherwise we can determine why we failed
+    var reasons = User.failedLogin;
+    switch (reason) {
+        case reasons.NOT_FOUND:
+        case reasons.PASSWORD_INCORRECT:
+            // note: these cases are usually treated the same - don't tell
+            // the user *why* the login failed, only that it did
+            break;
+        case reasons.MAX_ATTEMPTS:
+            // send email or otherwise notify user that account is
+            // temporarily locked
+            break;
+    }
+
+    
+
+});
+
+    
     User.find({
         email: email
     }, (err, users) => {
         if (err) {
-            res.send({
+            return res.send({
                 success: false,
                 message: 'Error: server error'
             });
-            next(err)
         }
         if (users.length != 1) {
-            res.send({
+            return res.send({
                 success: false,
                 message: 'Error: Invalid'
             });
-            next("error")
         }
         const user = users[0];
         if (!user.validPassword(password)) {
-            res.send({
+            return res.send({
                 success: false,
                 message: 'Error: Invalid'
             });
-            next(null)
-         } 
-        else {
-            res.json( "Your password is vaild" )
-            return next(null)
         }
 
         // Otherwise correct user
@@ -203,71 +197,63 @@ router.post('/signin', function (req, res, next) {
         userSession.save((err, doc) => {
             if (err) {
                 console.log(err)
-                res.send({
+                return res.send({
                     success: false,
                     message: 'Error: server error'
                 });
-                next(err)
-            } else {
-                res.send({
-                    success: true,
-                    message: 'Valid sign in',
-                    token: doc._id
-                })
-                next(null)
             }
 
-
+            return res.send({
+                success: true,
+                message: 'Valid sign in',
+                token: doc._id
+            })
         });
-    });
-})
 
-router.post('/verify', function (req, res, next) {
-    const { body } = req;
-    const { token } = body;
+
+        
+    });
+
+
+});
+
+router.get('verify', (req, res, next) => {
+    // Get the token 
+    const { query } = req;
+    const { token } = query;
     ///?token=test
 
-    // Verify the token to see if it is one of a kind and that it's not deleted.
+    // Verify the token us one of a kind  and it's not deleted.
 
-    // UserSession.find({
-    //     _id: token,
-    //     isDeleted: false
-    // }, (err, sessions) => {
-    UserSession.findById(token, (err, sessions) => {
+    UserSession.find({
+        _id: token,
+        isDeleted: false
+    }, (err, sessions) => {
         if (err) {
             console.log(err);
-            res.send({
+            return res.send({
                 success: false,
                 message: 'Error: Server error'
             });
-            next(err)
         }
-
-        console.log(sessions);
-        // if (sessions.length !=1) {
-
-        // Since it is a object not an array use arg === null not arg.length since this staments is for arrays.
-        if (sessions === null) {
-            res.send({
+        if (sessions.length != 1) {
+            return res.send({
                 success: false,
                 message: 'Invaild'
             });
-            next(null)
         } else {
-            res.send({
+            return res.send({
                 success: true,
-                message: 'You have been verified'
+                message: 'Good'
             });
-            next(null)
         }
     })
 })
 
-router.get('/logout', function (req, res, next) {
-
+router.get('logout', (req, res, next) => {
     // Get the token 
-    const { body } = req;
-    const { token } = body;
+    const { query } = req;
+    const { token } = query;
     ///?token=test
 
     // Verify the token us one of a kind  and it's not deleted.
@@ -281,53 +267,19 @@ router.get('/logout', function (req, res, next) {
         }
     }, null, (err, sessions) => {
         if (err) {
-            res.send({
+            return res.send({
                 success: false,
                 message: 'Error: Server error'
             });
-            next(err)
-        } else {
-            res.send({
-                success: true,
-                message: 'You are logged off'
-            });
-            next(null)
         }
 
-
+        return res.send({
+            success: true,
+            message: 'Good'
+        });
 
     });
-})
 
-//console.log("I'm api/index.js")
+});
+
 module.exports = router;
-
-
-
-
-
-
-
-
-/*
-module.exports = (app) => {
-    // sign up
-    app.post('api/account/signup', (req, res, next) => {
-
-    });
-
-    app.post('api/account/signin', (req, res, next) => {
-
-    });
-
-    app.get('api/account/verify', (req, res, next) => {
-        // Get the token
-
-    })
-
-    app.get('/api/account/logout', (req, res, next) => {
-
-    });
-
-};
-*/
