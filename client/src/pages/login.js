@@ -3,10 +3,7 @@ import React, { Component } from "react";
 export default class Login extends Component {
     
     render() {
-        // state = {
-        //     email:'',
-        //     password:''
-        // }
+      
         return (
         <div class="form-wrapper">
             <form id="login">

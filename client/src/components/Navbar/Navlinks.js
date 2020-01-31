@@ -10,7 +10,7 @@ const Navlinks = props => {
         <ul className="nav-links">
         {/* <li>
             <Link to= "/" className="link" tabIndex = { tempTabIndex }>Homepage</Link>
-        </li>
+        </li> */}
         <li>
             <Link to="/" className= "link" tabIndex = { tempTabIndex }>Favorites</Link>
         </li>

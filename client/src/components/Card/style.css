@@ -9,7 +9,7 @@
     border: 1px solid cornflowerblue;
     display: flex;
     flex-wrap: wrap;
-    
+    float: left;
 
 
 }
@@ -39,4 +39,7 @@
     text-align: center;
     font-size: x-large;
 
+  }
+  .picky{
+text-align: center;
   }
