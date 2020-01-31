@@ -11,22 +11,31 @@ justify-content: space-evenly;
 align-items: center;
 
 background: ${ props => props.theme.primary };
-color: white;
 
-height: 15vh;
-box-shadow: -10px 10px 5px ${ props => props.theme.accent };
+
+height: 9vh;
+/* box-shadow: -2px 6px 10px 2px ${ props => props.theme.accent }; */
 
 .logo {
-    font-size: 7vh;
+    font-size: 3rem;
     text-shadow: 3px 3px 3px ${ props => props.theme.accent };;
+    text-align: center;
+    align-items: flex-start;
+    text-decoration: none;
+    padding-inline-start: 0px;
+
+}
+box-shadow: -10px 10px 5px #101820;
+
 }
 .nav-links{
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 35vw;
+    flex-flow: right;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 75vw;
     list-style: none;
+    float: right;
 
     @media screen and (max-width : 768px) {
         display: none;
@@ -38,8 +47,9 @@ box-shadow: -10px 10px 5px ${ props => props.theme.accent };
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    flex-grow: 100;
 
-    height: 15vh;
+    height: 7vh;
 
     color: white;
     padding: 0 1rem;
@@ -54,10 +64,10 @@ box-shadow: -10px 10px 5px ${ props => props.theme.accent };
     &::after {
         content: '';
         height: 2px;
-        width: 0px;
+        width: 2px;
         background: white;
         display: block;
-        transition: width 0.5s;
+        transition: width 0.7s;
     }
     &:hover::after{
         transform: width;
