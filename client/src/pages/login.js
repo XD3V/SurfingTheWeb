@@ -244,7 +244,7 @@ class login extends Component {
   }
   
   render() {
-    console.log(token)
+    //console.log(obj)
     const {
       isLoading,
       token,
