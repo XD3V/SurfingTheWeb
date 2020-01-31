@@ -8,17 +8,16 @@ const Navlinks = props => {
 }
     return (
         <ul className="nav-links">
-        {/* <li>
-            <Link to= "/" className="link" tabIndex = { tempTabIndex }>Homepage</Link>
-        </li> */}
-        <li>
-            <Link to="/" className= "link" tabIndex = { tempTabIndex }>Favorites</Link>
+        { <li>
+            { <Link to="/" className= "link" tabIndex = { tempTabIndex }>Favorites</Link> }
         </li>
         <li>
-            <Link to= "/about" className="link" tabIndex = { tempTabIndex }>Beach Spots</Link>
-        </li> */}
+            { <Link to= "/about" className="link" tabIndex = { tempTabIndex }>Register</Link> }
+           
+        </li>
         <li>
-            <Link to= "/home/login" className="link" tabIndex = { tempTabIndex }>Login Page</Link>
+            <Link to= "/home/login" className="link" tabIndex = { tempTabIndex }>Login</Link>
+           
         </li>
 
 

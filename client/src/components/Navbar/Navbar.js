@@ -9,6 +9,11 @@ const MyNavbar = styled.div`
     flex-flow: column nowrap;
     justify-content: flex-start;
     overflow-x: hidden;
+    /* box-shadow: 1px 9px 14px 2px #101820; */
+    
+}
+
+    
 `
 // Root component of the entire navbar 
 class Navbar extends Component {
