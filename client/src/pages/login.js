@@ -222,6 +222,7 @@ class login extends Component {
         .then(json => {
           if (json.succces) {
             this.setstate({
+                
               token: '',
               isLoading: false,
             });
@@ -239,10 +240,11 @@ class login extends Component {
         isLoading: false,
       });
     }
+    
   }
   
   render() {
-    //console.log(obj)
+    console.log(token)
     const {
       isLoading,
       token,
@@ -361,7 +363,7 @@ class login extends Component {
 
         </div>
       )
-    } if(token){
+    } 
     return (
      
         <div>
@@ -369,7 +371,7 @@ class login extends Component {
         <button onClick={this.logout}>Logout</button>
       </div>
     );
-      }
+      
       
   }
 }
