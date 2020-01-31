@@ -7,6 +7,10 @@
     text-align: center;
     background-color: rgba(192,192,192,0.55);
     border: 1px solid cornflowerblue;
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+
 
 }
 .card:hover {
@@ -17,6 +21,25 @@
     overflow: hidden;
   }
 
-  .container-fluid .row {
+  .container .row {
     padding-top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    text-align: center;
+    font-size: x-large;
+    }
+
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 1;
+    text-align: center;
+    font-size: x-large;
+
+  }
+  .picky{
+text-align: center;
   }

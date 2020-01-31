@@ -11,7 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-
+.h4{
+  text-align: left;
+}
 
 body {
     margin: 0;
@@ -38,6 +40,7 @@ code {
 html {
     background: url("./images/Surf.jpg") no-repeat center center fixed;
     background-size: cover;
+
     
 }
 

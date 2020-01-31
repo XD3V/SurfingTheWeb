@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import Cards from "../components/Card/Cards";
+// import React, { Component } from "react";
+// import Cards from "../components/Card/Cards";
 
-class Home extends Component {
-  render() {
-    return (
-        <Cards />
-    );
-  }
-}
+// class Home extends Component {
+//   render() {
+//     return (
+//         <Cards />
+//     );
+//   }
+// }
 
-export default Home;
+// export default Home;
