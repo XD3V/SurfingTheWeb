@@ -36,19 +36,57 @@ class login extends Component {
     this.logout = this.logout.bind(this)
   }
 
-  componentDidMount() {
+//   componentDidMount() {
 
-    const obj = getFromStorage('the_main_app')
+//     const obj = getFromStorage('the_main_app')
 
-    if (obj && obj.token) {
-      const { token } = obj;
+//     if (obj && obj.token) {
+//       const { token } = obj;
+//       // verify the token
+//       fetch(`/api/accounts/verify?token=${token}`)
+//         .then(res => res.json())
+        
+//         .then(json => {
+           
+//           if (json.succces) {
+//             this.setstate({
+//               token,
+//               isLoading: false,
+//             });
+//           } else {
+//             this.setstate({
+//               isLoading: false,
+//             })
+//           }
+//           this.setState({
+//             counters: json
+//           });
+//         });
+//     } else {
+//       this.setState({
+//         isLoading: false,
+//       });
+//     }
+  
+//   }
+componentDidMount() {
+
+    //const obj = getFromStorage('the_main_app')
+
+    //if (obj && obj.token) {
+      //const { token } = obj;
       // verify the token
-      fetch(`/api/accounts/verify?token=${token}`)
-        .then(res => res.json())
+    //   fetch(`/api/accounts/verify?token=${this.state.token}`)
+    fetch(`http://localhost:3001/api/accounts/verify?token=5e33a36c4addac22f4efa649`)
+    .then(res => res.text()) 
+    .then(text => console.log(text))
+  
+        
         .then(json => {
+           
           if (json.succces) {
             this.setstate({
-              token,
+              //token,
               isLoading: false,
             });
           } else {
@@ -60,11 +98,11 @@ class login extends Component {
             counters: json
           });
         });
-    } else {
-      this.setState({
-        isLoading: false,
-      });
-    }
+    // } else {
+    //   this.setState({
+    //     isLoading: false,
+    //   });
+    // }
   
   }
 
