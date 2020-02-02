@@ -18,12 +18,15 @@ router.get('/proxy', (req, res) => {
   })
 })
 
+let Token = "rmFiSaAEylAZFWQPFJRikUJrOivQEoIX";
 // these our proxy routes
-router.get('/proxy/spot/all', (req, res, next) => {
+router.get(fetch(`https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=TAVG&limit=1000&stationid=GHCND:USW00023129&startdate=2019-01-01&enddate=2020-1-1, ${headers={'token':Token}}`), 
+(req, res, next) => {
 
   console.log('fetching all spots')
 
-  fetch('http://api.spitcast.com/api/spot/all').then( (response) => {
+  fetch(`https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=TAVG&limit=1000&stationid=GHCND:USW00023129&startdate=2019-01-01&enddate=2020-1-1, ${headers={'token':Token}}`)
+  .then( (response) => {
     return response.json()
   }).then( (json) => {
     //console.log(json)
@@ -35,22 +38,41 @@ router.get('/proxy/spot/all', (req, res, next) => {
     })
   })
 })
-router.get('/proxy/spot/:id', (req, res, next) => {
-  console.log("I am here", req.params.id)
-  fetch('http://api.spitcast.com/api/spot/forecast/' + req.params.id).then( (response) => {
-    return response.json()
-  }).then( (json) => {
-    console.log(json)
-    res.json(json)
-  }).catch( (e) => {
-    console.log("error fetching spot forecast")
-    res.json( {
-      error : true,
-      error_likely : "forecase for this spot does not exist", 
-      error_message : e
-    })
-  })
-})
+
+
+// // these our proxy routes
+// router.get('/proxy/spot/all', (req, res, next) => {
+
+//   console.log('fetching all spots')
+
+//   fetch('http://api.spitcast.com/api/spot/all').then( (response) => {
+//     return response.json()
+//   }).then( (json) => {
+//     //console.log(json)
+//     res.json(json)
+//   }).catch( (e) => {
+//     res.json({
+//       error : true,
+//       error_message : e
+//     })
+//   })
+// })
+// router.get('/proxy/spot/:id', (req, res, next) => {
+//   console.log("I am here", req.params.id)
+//   fetch('http://api.spitcast.com/api/spot/forecast/' + req.params.id).then( (response) => {
+//     return response.json()
+//   }).then( (json) => {
+//     console.log(json)
+//     res.json(json)
+//   }).catch( (e) => {
+//     console.log("error fetching spot forecast")
+//     res.json( {
+//       error : true,
+//       error_likely : "forecase for this spot does not exist", 
+//       error_message : e
+//     })
+//   })
+// })
 
 
 

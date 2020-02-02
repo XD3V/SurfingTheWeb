@@ -282,4 +282,43 @@ router.route('/logout').get ((req, res, next) => {
 
 });
 
+
+router.route(`/api`).get ((req, res, next) => {
+
+var noaaUrl = "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets";
+var tokenFromNoaa = "rmFiSaAEylAZFWQPFJRikUJrOivQEoIX";
+
+$.ajax({
+    url: noaaUrl,
+    headers:{
+        token: tokenFromNoaa
+    },
+    success: function(returnedData) {
+        console.log(returnedData);
+    }
+})
+    // // these our proxy routes
+    
+
+     //router.get(fetch(`https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=TAVG&limit=1000&stationid=GHCND:USW00023129&startdate=2019-01-01&enddate=2020-1-1, ${headers={'token':Token}}`), 
+    // (req, res, next) => {
+    
+    //   console.log('fetching all spots')
+    
+    //    fetch(`https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=TAVG&limit=1000&stationid=GHCND:USW00023129&startdate=2019-01-01&enddate=2020-1-1, ${headers={'token':Token}}`)
+    //   .then( (response) => {
+    //     return response.json()
+    //   }).then( (json) => {
+    //     //console.log(json)
+    //     res.json(json)
+    //   }).catch( (e) => {
+    //     res.json({
+    //       error : true,
+    //       error_message : e
+    //     })
+    //   })
+    // })
+  
+});
+
 module.exports = router;

@@ -10,9 +10,9 @@ const Navlinks = props => {
     } 
     return (
         <ul className="nav-links">
-            <li>
+            {/* <li>
                 {<Link to="/" className="link" tabIndex={tempTabIndex}>Favorites</Link>}
-            </li>
+            </li> */}
             <li>
                 {<Link to="/home/register" className="link" tabIndex={tempTabIndex}>Register</Link>}
 

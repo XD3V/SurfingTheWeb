@@ -1,11 +1,11 @@
-  
+
 import React, { Component } from "react"
-import {Cards}from './index';
+import { Cards } from './index';
 import './style.css';
 //import Forecast from './forecastC'
 // these are the Cardss of the respective different beaches
 
-class navCards extends Component{
+class navCards extends Component {
 
   constructor(props) {
     super(props)
@@ -66,17 +66,17 @@ class navCards extends Component{
     // beaches are still loading from API
     if (this.state.items.length === 0) {
       return (
-   <div class="preloader-wrapper big active">
-    <div class="spinner-layer spinner-blue-only">
-      <div class="circle-clipper left">
-        <div class="circle"></div>
-      </div><div class="gap-patch">
-        <div class="circle"></div>
-      </div><div class="circle-clipper right">
-        <div class="circle"></div>
-      </div>
-    </div>
-  </div>
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
       )
     }
 
@@ -84,48 +84,10 @@ class navCards extends Component{
     return (
 
       <div>
-
-
         <div className='container-fluid d-flex justify-content-center'>
-
           <div className='row'>
             <div className='col-md-2'>
               <Cards title1='Beach Name' title={this.state.items[0].spot_name} county={this.state.items[0].county_name} spot_id={this.state.items[0].spot_id} />
-              
-            </div>
-            <div className='col-md-2'>
-              <Cards title2='Beach Name' title={this.state.items[1].spot_name} county={this.state.items[1].county_name} spot_id={this.state.items[1].spot_id} />
-            </div>
-            <div className='col-md-2'>
-              <Cards title3='Beach Name' title={this.state.items[2].spot_name} county={this.state.items[2].county_name} spot_id={this.state.items[2].spot_id} />
-            </div>
-            <div className='col-md-2'>
-              <Cards title4='Beach Name' title={this.state.items[3].spot_name} county={this.state.items[3].county_name} spot_id={this.state.items[3].spot_id} />
-            </div>
-            <div className='col-md-2'>
-              <Cards title5='Beach Name' title={this.state.items[4].spot_name} county={this.state.items[4].county_name} spot_id={this.state.items[4].spot_id} />
-            </div>
-          </div>
-
-        </div>
-
-
-        <div className='container-fluid d-flex justify-content-center'>
-          <div className='row'>
-            <div className='col-md-2'>
-              <Cards title6='Beach Name' title={this.state.items[5].spot_name} county={this.state.items[5].county_name} spot_id={this.state.items[5].spot_id} />
-            </div>
-            <div className='col-md-2'>
-              <Cards title7='Beach Name' title={this.state.items[6].spot_name} county={this.state.items[6].county_name} spot_id={this.state.items[6].spot_id} />
-            </div>
-            <div className='col-md-2'>
-              <Cards title8='Beach Name' title={this.state.items[7].spot_name} county={this.state.items[7].county_name} spot_id={this.state.items[7].spot_id} />
-            </div>
-            <div className='col-md-2'>
-              <Cards title9='Beach Name' title={this.state.items[8].spot_name} county={this.state.items[8].county_name} spot_id={this.state.items[8].spot_id} />
-            </div>
-            <div className='col-md-2'>
-              <Cards title0='Beach Name' title={this.state.items[9].spot_name} county={this.state.items[9].county_name} spot_id={this.state.items[9].spot_id} />
             </div>
           </div>
         </div>
