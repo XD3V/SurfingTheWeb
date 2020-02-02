@@ -14,24 +14,15 @@ class login extends Component {
     this.state = {
       isLoading: true,
       token: '',
-      signUpError: '',
       signInError: '',
       signInEmail: '',
-      signInPassword: '',
-      signUpUsername: '',
-      signUpEmail: '',
-      signUpPassword: ''
-
+      signInPassword: ''
     }
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
-    this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
-    this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
-    this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(this);
     // this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
     // this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
 
-    this.onSignUp = this.onSignUp.bind(this);
     this.onSignIn = this.onSignIn.bind(this);
     this.logout = this.logout.bind(this)
   }
@@ -72,92 +63,9 @@ class login extends Component {
       signInPassword: event.target.value
     })
   }
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value
-    })
-  }
-  onTextboxChangeSignUpPassword(event) {
-    this.setState({
-      signUpPassword: event.target.value
-    })
-  }
-  onTextboxChangeSignUpUsername(event) {
-    this.setState({
-      signUpUsername: event.target.value
-    })
-  }
 
 
-  // onTextboxChangeSignUpFirstName(event) {
-  //   this.setState({
-  //     signUpFirstName: event.target.value
-  //   })
-  // }
-  // onTextboxChangeSignUpLastName(event) {
-  //   this.setState({
-  //     signUpLastName: event.target.value
-  //   })
-  // }
 
-
-  onSignUp() {
-    // Grab state
-    const {
-      // signUpFirstName,
-      // signUpLastName,
-      signUpUsername,
-      signUpPassword,
-      signUpEmail
-    } = this.state
-    this.setState({
-      isLoading: true,
-
-    })
-    // Post request to backend
-
-    // the json needs to be loaded via localhost and to make sure its loaded we need to change 
-    //fetch('api/account/signup' to fetch('http://localhost/api/account/signup'
-
-
-    fetch('/api/account/signup', {
-      // we need headers to let the browser know we are using MIME or also known as media type to send a string along with a file
-      // indicating the type of the file .
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-
-      body: JSON.stringify({
-
-        // firstName: signUpFirstName,
-        // lastName: signUpLastName,
-        username: signUpUsername,
-        password: signUpPassword,
-        email: signUpEmail
-      }),
-    })
-      .then(res => res.json())
-      .then(json => {
-        if (json.success) {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-            signUpEmail: '',
-            signUpPassword: '',
-            signUpUsername: ''
-            // signUpFirstName: '',
-            // signUpLastName: ''
-          })
-        }
-        else {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-          })
-        }
-      });
-  }
 
   onSignIn() {
     // Grab state
@@ -165,7 +73,7 @@ class login extends Component {
       signInPassword,
       signInEmail
     } = this.state;
-    
+
     this.setState({
       isLoading: true,
 
@@ -222,7 +130,7 @@ class login extends Component {
               token: '',
               isLoading: false,
             });
-          } 
+          }
         });
     } else {
       this.setState({
@@ -239,13 +147,7 @@ class login extends Component {
       token,
       signInError,
       signInEmail,
-      signInPassword,
-      signUpError,
-      signUpUsername,
-      // signUpFirstName,
-      // signUpLastName,
-      signUpEmail,
-      signUpPassword
+      signInPassword
     } = this.state;
 
     if (isLoading) {
@@ -292,75 +194,17 @@ class login extends Component {
 
           <br />
 
-          <div>
-            {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-
-              ) : (null)
-            }
-            <p>Sign Up</p>
-
-            {/* <input
-              type="text"
-              placeholder="First Name"
-              value={signUpFirstName}
-              onChange={this.onTextboxChangeSignUpFirstName}
-            />
-
-            <br />
-            
-            <input
-              type="text"
-              placeholder="Last Name"
-              value={signUpLastName}
-              onChange={this.onTextboxChangeSignUpLastName}
-            /> */}
-
-            <input
-              type="text"
-              placeholder="Username"
-              value={signUpUsername}
-              onChange={this.onTextboxChangeSignUpUsername}
-            />
-
-
-            <br />
-
-            <input
-
-              type="email"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
-            />
-
-            <br />
-
-            <input
-              type="Password"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignUpPassword}
-            />
-
-            <br />
-
-
-            <button onClick={this.onSignUp}>Sign Up</button>
-
-          </div>
 
         </div>
       )
-    }return (
+    } return (
 
-        <div>
-          <p>Account</p>
-          <button onClick={this.logout}>Logout</button>
-        </div>
-      );
-   }
+      <div>
+        <p>Account</p>
+        <button onClick={this.logout}>Logout</button>
+      </div>
+    );
+  }
 }
 
 export default login;
