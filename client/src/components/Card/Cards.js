@@ -16,7 +16,7 @@ class navCards extends Component{
   }
 
   // pre approved spots array 
-  pre_approved_spots = [397, 638, 1, 10, 200, 201, 202, 203, 204, 205]
+  // pre_approved_spots = [397, 638, 1, 10, 200, 201, 202, 203, 204, 205]
 
 
   // component was mounted
@@ -24,7 +24,7 @@ class navCards extends Component{
 
     console.log('going to fetch now')
     // pre-fetch data to populate UI before it is rendered
-    fetch('/proxy/spot/all')
+   // fetch('/proxy/spot/all')
       .then(res => res.json())
       .then(json => {
 
@@ -32,7 +32,7 @@ class navCards extends Component{
 
         for (let i = 0; i < json.length; i++) {
 
-          if (this.pre_approved_spots.includes(json[i].spot_id)) {
+         /* if (this.pre_approved_spots.includes(json[i].spot_id)) {
             let newObj = {
               county_name: json[i].county_name,
               latitude: json[i].latitude,
@@ -44,7 +44,7 @@ class navCards extends Component{
             console.log(json[i])
           } else {
             // ignore this spot 
-          }
+          } */
 
 
         }
@@ -100,7 +100,7 @@ class navCards extends Component{
       <div>
 
 
-        <div className='container-fluid d-flex justify-content-center'>
+        /*<div className='container-fluid d-flex justify-content-center'>
 
           <div className='row'>
             <div className='col-md-2'>
@@ -150,4 +150,4 @@ class navCards extends Component{
   }
 }
 
-export default navCards;
+export default Cards;
