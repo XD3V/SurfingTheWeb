@@ -66,31 +66,17 @@ class navCards extends Component{
     // beaches are still loading from API
     if (this.state.items.length === 0) {
       return (
-        <div className='container-fluid d-flex justify-content-center'>
-          <div className='row'>
-            <div className='col-md-4'>
-              <Cards titleLoader1='Beach Name' title={
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              } />
-            </div>
-            <div className='col-md-4'>
-              <Cards titleLoader2='Beach 2' title={
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              } />
-            </div>
-            <div className='col-md-4'>
-              <Cards titleLoader3='Beach 3' title={
-                <div className="spinner-border" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              } />
-            </div>
-          </div>
-        </div>
+   <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
       )
     }
 
