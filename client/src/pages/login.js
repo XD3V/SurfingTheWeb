@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
-import 'whatwg-fetch';
+//import 'whatwg-fetch';
 import {
   getFromStorage,
-  setInStorage,
+  setInStorage
 } from '../utils/storage'
 let fetch = require('node-fetch')
 
@@ -36,74 +36,30 @@ class login extends Component {
     this.logout = this.logout.bind(this)
   }
 
-//   componentDidMount() {
-
-//     const obj = getFromStorage('the_main_app')
-
-//     if (obj && obj.token) {
-//       const { token } = obj;
-//       // verify the token
-//       fetch(`/api/accounts/verify?token=${token}`)
-//         .then(res => res.json())
-        
-//         .then(json => {
-           
-//           if (json.succces) {
-//             this.setstate({
-//               token,
-//               isLoading: false,
-//             });
-//           } else {
-//             this.setstate({
-//               isLoading: false,
-//             })
-//           }
-//           this.setState({
-//             counters: json
-//           });
-//         });
-//     } else {
-//       this.setState({
-//         isLoading: false,
-//       });
-//     }
-  
-//   }
-componentDidMount() {
-
-    //const obj = getFromStorage('the_main_app')
-
-    //if (obj && obj.token) {
-      //const { token } = obj;
-      // verify the token
-    //   fetch(`/api/accounts/verify?token=${this.state.token}`)
-    fetch(`http://localhost:3001/api/accounts/verify?token=5e33a36c4addac22f4efa649`)
-    .then(res => res.text()) 
-    .then(text => console.log(text))
-  
-        
+  componentDidMount() {
+    const obj = getFromStorage('the_main_app');
+    if (obj && obj.token) {
+      const { token } = obj;
+      // Verify token
+      fetch('/api/account/verify?token=' + token)
+        .then(res => res.json())
         .then(json => {
-           
-          if (json.succces) {
-            this.setstate({
-              //token,
-              isLoading: false,
+          if (json.success) {
+            this.setState({
+              token,
+              isLoading: false
             });
           } else {
-            this.setstate({
+            this.setState({
               isLoading: false,
-            })
+            });
           }
-          this.setState({
-            counters: json
-          });
         });
-    // } else {
-    //   this.setState({
-    //     isLoading: false,
-    //   });
-    // }
-  
+    } else {
+      this.setState({
+        isLoading: false,
+      });
+    }
   }
 
   onTextboxChangeSignInEmail(event) {
@@ -171,17 +127,19 @@ componentDidMount() {
       headers: {
         'Content-Type': 'application/json'
       },
+
       body: JSON.stringify({
+
         // firstName: signUpFirstName,
         // lastName: signUpLastName,
         username: signUpUsername,
         password: signUpPassword,
-        email: signUpEmail,
+        email: signUpEmail
       }),
     })
       .then(res => res.json())
       .then(json => {
-        if (json.succces) {
+        if (json.success) {
           this.setState({
             signUpError: json.message,
             isLoading: false,
@@ -206,7 +164,8 @@ componentDidMount() {
     const {
       signInPassword,
       signInEmail
-    } = this.state
+    } = this.state;
+    
     this.setState({
       isLoading: true,
 
@@ -220,27 +179,27 @@ componentDidMount() {
       },
       body: JSON.stringify({
         email: signInEmail,
-        password: signInPassword
+        password: signInPassword,
       }),
-    })
-      .then(res => res.json())
+    }).then(res => res.json())
       .then(json => {
-        if (json.succces) {
+        console.log('json', json)
+        if (json.success) {
           console.log("WE ARE GOOD!!")
-          setInStorage('the_main_app', { token: json.token });
+          setInStorage('the_main_app', { token: json.token }); console.log(json.token)
           this.setState({
             signInError: json.message,
             isLoading: false,
             signInEmail: '',
             signInPassword: '',
             token: json.token
-          })
+          });
         }
         else {
           this.setState({
-            signIpError: json.message,
+            signInError: json.message,
             isLoading: false,
-          })
+          });
         }
       });
 
@@ -250,37 +209,29 @@ componentDidMount() {
     this.setState({
       isLoading: true,
     })
-    const obj = getFromStorage('the_main_app')
+    const obj = getFromStorage('the_main_app');
 
     if (obj && obj.token) {
       const { token } = obj;
       // verify the token
-      fetch(`/api/accounts/logout?token=${token}`)
+      fetch(`/api/account/logout?token=${token}`)
         .then(res => res.json())
         .then(json => {
-          if (json.succces) {
-            this.setstate({
-                
+          if (json.success) {
+            this.setState({
               token: '',
               isLoading: false,
             });
-          } else {
-            this.setstate({
-              isLoading: false,
-            })
-          }
-          this.setState({
-            counters: json
-          });
+          } 
         });
     } else {
       this.setState({
         isLoading: false,
       });
     }
-    
+
   }
-  
+
   render() {
     //console.log(obj)
     const {
@@ -301,7 +252,7 @@ componentDidMount() {
       return (<div><p>Loading...</p></div>)
     }
     if (!token) {
-      console.log(token)
+      console.log("HERE I AM" + token)
       return (
         <div>
           <div>
@@ -377,6 +328,7 @@ componentDidMount() {
             <br />
 
             <input
+
               type="email"
               placeholder="Email"
               value={signUpEmail}
@@ -401,17 +353,14 @@ componentDidMount() {
 
         </div>
       )
-    } 
-    return (
-     
+    }return (
+
         <div>
-        <p>Account</p>
-        <button onClick={this.logout}>Logout</button>
-      </div>
-    );
-      
-      
-  }
+          <p>Account</p>
+          <button onClick={this.logout}>Logout</button>
+        </div>
+      );
+   }
 }
 
 export default login;
@@ -422,7 +371,7 @@ export default login;
 // import React, { Component } from "react";
 
 // export default class Login extends Component {
-    
+
 //     render() {
 //         // state = {
 //         //     email:'',

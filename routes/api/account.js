@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 let router = require("express").Router();
 
 // Begining of the sign up function
-router.post('/signup', (req, res, next) => {
+router.route('/signup').post ((req, res, next) => {
 
     console.log("WE ARE HERE")
 
@@ -41,7 +41,7 @@ router.post('/signup', (req, res, next) => {
     if (!username) {
         // we need to return res.send since the vaule of the application is trying to send and render at the same time causing us to get this error
         //Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-         res.send({
+        res.send({
             success: false,
             message: 'Error: Username cannot be blank'
         });
@@ -114,7 +114,7 @@ router.post('/signup', (req, res, next) => {
     });
 });
 
-router.post('/signin', (req, res, next) => {
+router.route('/signin').post  ((req, res, next) => {
     const { body } = req;
     const {
         password,
@@ -138,36 +138,7 @@ router.post('/signin', (req, res, next) => {
         });
     }
     email = email.toLowerCase();
-//Creating the login auth funtion for the sigin page
-User.getAuthenticated(email, password, function (err, userPer, reason) {
-    if (err) throw err;
-
-    // login was successful if we have a user
-    if (userPer) {
-        // handle login success
-        console.log('login success');
-        return;
-    }
-
-    // otherwise we can determine why we failed
-    var reasons = User.failedLogin;
-    switch (reason) {
-        case reasons.NOT_FOUND:
-        case reasons.PASSWORD_INCORRECT:
-            // note: these cases are usually treated the same - don't tell
-            // the user *why* the login failed, only that it did
-            break;
-        case reasons.MAX_ATTEMPTS:
-            // send email or otherwise notify user that account is
-            // temporarily locked
-            break;
-    }
-
-    
-
-});
-
-    
+   
     User.find({
         email: email
     }, (err, users) => {
@@ -211,20 +182,47 @@ User.getAuthenticated(email, password, function (err, userPer, reason) {
         });
 
 
-        
+
+    });
+
+     //Creating the login auth funtion for the sigin page
+     User.getAuthenticated(email, password, function (err, userPer, reason) {
+        if (err) throw err;
+
+        // login was successful if we have a user
+        if (userPer) {
+            // handle login success
+            console.log('login success');
+            return;
+        }
+
+        // otherwise we can determine why we failed
+        var reasons = User.failedLogin;
+        switch (reason) {
+            case reasons.NOT_FOUND:
+            case reasons.PASSWORD_INCORRECT:
+                // note: these cases are usually treated the same - don't tell
+                // the user *why* the login failed, only that it did
+                break;
+            case reasons.MAX_ATTEMPTS:
+                // send email or otherwise notify user that account is
+                // temporarily locked
+                break;
+        }
+
+
+
     });
 
 
 });
 
-router.get('verify', (req, res, next) => {
-    // Get the token 
+router.route('/verify').get ( (req, res, next) => {
+    // Get the token
     const { query } = req;
     const { token } = query;
-    ///?token=test
-
-    // Verify the token us one of a kind  and it's not deleted.
-
+    // ?token=test
+    // Verify the token is one of a kind and it's not deleted.
     UserSession.find({
         _id: token,
         isDeleted: false
@@ -239,18 +237,19 @@ router.get('verify', (req, res, next) => {
         if (sessions.length != 1) {
             return res.send({
                 success: false,
-                message: 'Invaild'
+                message: 'Error: Invalid'
             });
         } else {
+            // DO ACTION
             return res.send({
                 success: true,
                 message: 'Good'
             });
         }
-    })
+    });
 })
 
-router.get('logout', (req, res, next) => {
+router.route('/logout').get ((req, res, next) => {
     // Get the token 
     const { query } = req;
     const { token } = query;
@@ -267,6 +266,7 @@ router.get('logout', (req, res, next) => {
         }
     }, null, (err, sessions) => {
         if (err) {
+            console.log(err)
             return res.send({
                 success: false,
                 message: 'Error: Server error'
