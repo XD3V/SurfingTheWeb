@@ -16,7 +16,7 @@ class Card extends Component {
     }
   }
 
-  //   // pre approved spots array 
+  //   // pre approved spots array
   //   pre_approved_spots = [0, 1, 6]
 
 
@@ -58,20 +58,19 @@ class Card extends Component {
       });
 
       }
-  
+
+
+      render(){
+          return(
+            <div>
+
+            </div>
+           )
+      }
+
 }
 
-return(
-  <div>
-     {
-       items.map( (item) =>{
-            return (
-             <Card beachData={json.stations[i].name} />
-            )
-       })
-     }
-  </div>
- )
+
 
 export default Card
 
@@ -114,7 +113,7 @@ export default Card
 //     }
 //   }
 
-//   // pre approved spots array 
+//   // pre approved spots array
 //   pre_approved_spots = [397, 638, 1, 10, 200, 201, 202, 203, 204, 205]
 
 
@@ -142,7 +141,7 @@ export default Card
 //             items_array.push(newObj)
 //             console.log(json[i])
 //           } else {
-//             // ignore this spot 
+//             // ignore this spot
 //           }
 
 
@@ -171,7 +170,7 @@ export default Card
 
 
 
-  
+
 //   render() {
 
 //     // beaches are still loading from API

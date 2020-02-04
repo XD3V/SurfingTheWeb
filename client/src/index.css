@@ -10,7 +10,7 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-} 
+}
 .h4{
   text-align: left;
 }
@@ -23,13 +23,13 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Amarante', cursive;
-    
+
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
-        
+
 }
 
 * {
@@ -41,7 +41,7 @@ html {
     background: url("./images/Surf.jpg") no-repeat center center fixed;
     background-size: cover;
 
-    
+
 }
 
 main{
@@ -80,7 +80,7 @@ form#login .form-control:focus {
     margin: 0;
     line-height: 1;
     padding-bottom: 20px;
-  } 
+  }
 
   form#login .custom-control-label {
     font-weight: 400;
@@ -107,7 +107,7 @@ form#login .form-control:focus {
       display: flex;
   }
 
- form#login .form-group label { 
+ form#login .form-group label {
      width: 120px;
  }
 
@@ -117,3 +117,38 @@ form#login .form-control:focus {
     color: white;
     border-radius: 10px;
  }
+
+ .login-container {
+     width: 300px;
+     margin: 0 auto;
+     background-color: #3D5678;
+     height: 180px;
+     width: 350px;
+     margin-top: 50px;
+ }
+
+ .login-container-padding {
+     padding: 10px;
+ }
+
+.signin {
+    color: white !important;
+    padding : 10px;
+    padding-left: 0;
+    font-size: 1em;
+}
+
+.signin-button{
+    display:inline-block;
+     padding:0.35em 1.2em;
+     border:0.1em solid #FFFFFF;
+     margin:0 0.3em 0.3em 0;
+     border-radius:0.12em;
+     box-sizing: border-box;
+     text-decoration:none;
+     font-family:'Roboto',sans-serif;
+     font-weight:300;
+     color:#FFFFFF;
+     text-align:center;
+     transition: all 0.2s;
+}

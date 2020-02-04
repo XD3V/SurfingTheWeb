@@ -21,7 +21,7 @@ class login extends Component {
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     // this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
-    // this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
+    // this.onTextboxChangessSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
 
     this.onSignIn = this.onSignIn.bind(this);
     this.logout = this.logout.bind(this)
@@ -156,8 +156,8 @@ class login extends Component {
     if (!token) {
       console.log("HERE I AM" + token)
       return (
-        <div>
-          <div>
+        <div className="login-container">
+          <div className="login-container-padding">
 
             {
               (signInError) ? (
@@ -166,7 +166,7 @@ class login extends Component {
               ) : (null)
             }
 
-            <p>Sign In</p>
+            <p className="signin">Sign In</p>
 
             <input
               type="email"
@@ -186,7 +186,7 @@ class login extends Component {
 
             <br />
 
-            <button onClick={this.onSignIn}>Sign In</button>
+            <button className="signin-button" onClick={this.onSignIn}>Sign In</button>
 
           </div>
 
@@ -251,7 +251,7 @@ export default login;
 //             </div>
 //         );
 //     }
-// } 
+// }
 // JSON.parse()
 // localStorage.getItem(dataObject)
 // let myLogin = localStorage.get(dataObject)

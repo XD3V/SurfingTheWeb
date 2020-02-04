@@ -5,14 +5,20 @@ import Card from "../components/Card/Cards";
 
 
 class Home extends Component {
+
+    constructor(props){
+        super(props)
+    }
+
+
   render() {
-   
+
     return (
 
        <>
-       
+
        <Card  />
-       
+
        </>
 
     );
@@ -57,7 +63,7 @@ export default Home;
 //                         items_array.push(newObj)
 //                         console.log(json[i])
 //                     } else {
-//                         // ignore this spot 
+//                         // ignore this spot
 //                     }
 
 

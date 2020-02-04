@@ -89,7 +89,7 @@ class login extends Component {
         })
         // Post request to backend
 
-        // the json needs to be loaded via localhost and to make sure its loaded we need to change 
+        // the json needs to be loaded via localhost and to make sure its loaded we need to change
         //fetch('api/account/signup' to fetch('http://localhost/api/account/signup'
 
 
@@ -179,9 +179,9 @@ class login extends Component {
         if (!token) {
             //console.log("HERE I AM" + token)
             return (
-                <div>
+                <div className="login-container">
 
-                    <div>
+                    <div className="login-container-padding ">
                         {
                             (signUpError) ? (
                                 <p>{signUpError}</p>
@@ -239,6 +239,3 @@ class login extends Component {
 }
 
 export default login;
-
-
-
