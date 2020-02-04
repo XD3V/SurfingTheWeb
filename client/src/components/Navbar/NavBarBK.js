@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import M from 'materialize-css';
+//import M from 'materialize-css';
 import './navStyle.css';
-import logo from "../../images/surfboard.png"
-import register from '../../pages/register'
-import login from '../../pages/login'
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems);
-});
+import logo from "../../images/surfboard.png";
+import register from '../../pages/register';
+import login from '../../pages/login';
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   var elems = document.querySelectorAll('.sidenav');
+//   var instances = M.Sidenav.init(elems);
+// });
 
 
 class NavBar extends Component {
