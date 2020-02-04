@@ -1,52 +1,52 @@
-import React from "react";
-//import styled from 'styled-components'
-import Navlinks from './Navlinks'
-import "./style.css";
+// import React from "react";
+// //import styled from 'styled-components'
+// import Navlinks from './Navlinks'
+// import "./style.css";
 
-// const MyMobileNavBar = styled.nav`
+// // const MyMobileNavBar = styled.nav`
 
-//     width: 50vw;
-//     background: ${ props => props.theme.primary };
+// //     width: 50vw;
+// //     background: ${ props => props.theme.primary };
 
-//     margin-bottom: 15px;
+// //     margin-bottom: 15px;
 
-//     box-shadow: -10px 10px 5px ${ props => props.theme.accent };
+// //     box-shadow: -10px 10px 5px ${ props => props.theme.accent };
 
-//     align-self: flex-end;
+// //     align-self: flex-end;
 
-//     transition: transform 1s;
-//     transform: translateX( ${ props => props.displayMobileNavBar ? ("0%") : ("calc(100% + 15px)") } );
+// //     transition: transform 1s;
+// //     transform: translateX( ${ props => props.displayMobileNavBar ? ("0%") : ("calc(100% + 15px)") } );
 
-// .nav-links{
-//     display: flex;
-//     flex-flow: column nowrap;
-//     justify-content: space-evenly;
-//     align-items: center;
+// // .nav-links{
+// //     display: flex;
+// //     flex-flow: column nowrap;
+// //     justify-content: space-evenly;
+// //     align-items: center;
 
-//     height: 60vh;
+// //     height: 60vh;
 
-//     list-style: none;
+// //     list-style: none;
 
-// }
+// // }
 
-// .link {
-//   color: white;
-//     font-size: 2.5vh;
-//     text-decoration: none;
-// }
+// // .link {
+// //   color: white;
+// //     font-size: 2.5vh;
+// //     text-decoration: none;
+// // }
 
 
-const MobileNavbar = props => {
-    return (
-    //  <MyMobileNavBar displayMobileNavbar = { props.displayMobileNavbar}>
-    //    <Navlinks isMobileLink = { true } />
-    //      </MyMobileNavBar>
+// const MobileNavbar = props => {
+//     return (
+//     //  <MyMobileNavBar displayMobileNavbar = { props.displayMobileNavbar}>
+//     //    <Navlinks isMobileLink = { true } />
+//     //      </MyMobileNavBar>
 
-    <nav className={props.displayMobileNavbar ? "active" : "hidden"} id="mobile-nav">
-        <Navlinks isMobileLink={true} />
-    </nav>
+//     <nav className={props.displayMobileNavbar ? "active" : "hidden"} id="mobile-nav">
+//         <Navlinks isMobileLink={true} />
+//     </nav>
 
-    );
-};
+//     );
+// };
 
-export default MobileNavbar;
+// export default MobileNavbar;
