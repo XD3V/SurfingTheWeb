@@ -17,9 +17,9 @@ import { theme } from './theme'
 
 ReactDOM.render(
     <Router>
-        {/* <ThemeProvider theme={theme}> */}
+        <ThemeProvider theme={theme}>
             <App />
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
     </Router>
     , document.getElementById('root'));
 
