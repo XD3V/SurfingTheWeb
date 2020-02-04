@@ -1,8 +1,8 @@
 
 import React, { Component } from "react"
-import { Cards } from './index';
+import { Cards}  from './index';
 import './style.css';
-import { render } from "react-dom";
+//import { render } from "react-dom";
 //import Forecast from './forecastC'
 // these are the Cardss of the respective different beaches
 
@@ -60,10 +60,11 @@ class Card extends Component {
       }
 
 
-      render(){
+      render()
+      {
           return(
             <div>
-
+                <Cards />
             </div>
            )
       }
