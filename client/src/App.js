@@ -4,7 +4,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import NoMatch from "./pages/noMatch";
 import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/footer'
+import Footer from './components/Footer/NewFooter'
 import Register from './pages/register'
 
 function App() {
