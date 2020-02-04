@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import NoMatch from "./pages/noMatch";
-import Navbar from './components/Navbar/Navbar'
+import NavBar from './components/Navbar/NavBarBK'
 import Footer from './components/Footer/NewFooter'
 import Register from './pages/register'
 
 function App() {
   return (
-    <Router><>
-      <Navbar />
+    <Router>
+      <>
+      <header />
+      <NavBar />
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -20,7 +22,9 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
       </main>
-      <Footer /></>
+      <Footer>
+        </Footer>
+      </>
     </Router>
   );
 }
