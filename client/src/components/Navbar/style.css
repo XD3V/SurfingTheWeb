@@ -1,4 +1,22 @@
-#mobile-nav {
+.brand-logo {
+    font-family: 'Pacifico', cursive;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.logo {
+    src: url(./images/surfboard.png);
+    margin-left: 1rem;
+}
+
+.nav-wrapper {
+    font-family: 'Bree Serif', serif;
+    background: #3D5679;
+    
+    
+}
+
+/* #mobile-nav {
 
     width: 50vw;
     
@@ -23,13 +41,12 @@
 }
 
 #mobile-nav .nav-links{
-    display: flex-end;
+    display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
     align-items: center;
-    padding: 0.5rem;
-    /* height: 5vh;  */
-    flex-grow: 100;
+
+    padding: 1rem;
 
     list-style: none;
 
@@ -38,12 +55,5 @@
 #mobile-nav .link {
   color: white;
     font-size: 2.5vh;
-    text-decoration: show;
-    display: flex;
-    align-items: center;
-   justify-content: center;
-   flex-flow: column wrap;
-   align-content: stretch;
-   padding: 1rem 0;
-    
-}
+    text-decoration: none;
+} */
