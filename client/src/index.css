@@ -1,15 +1,14 @@
  body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Bree Serif', serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Bree Serif', serif;
+
 }
 .h4{
   text-align: left;
@@ -17,18 +16,15 @@ code {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Amarante', cursive;
+    font-family: 'Bree Serif', serif;
 
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
+  font-family: 'Bree Serif', serif;
+
 
 }
 
@@ -146,9 +142,10 @@ form#login .form-control:focus {
      border-radius:0.12em;
      box-sizing: border-box;
      text-decoration:none;
-     font-family:'Roboto',sans-serif;
+    font-family: 'Bree Serif', serif;
      font-weight:300;
      color:#FFFFFF;
      text-align:center;
      transition: all 0.2s;
 }
+
