@@ -17,15 +17,15 @@ router.get('/proxy', (req, res) => {
     works : 'works'
   })
 })
-
 let Token = "rmFiSaAEylAZFWQPFJRikUJrOivQEoIX";
 // these our proxy routes
-router.get(fetch(`https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=TAVG&limit=1000&stationid=GHCND:USW00023129&startdate=2019-01-01&enddate=2020-1-1, ${headers={'token':Token}}`), 
+router.get(fetch(`https://tidesandcurrents.noaa.gov//api/datagetter?product=predictions&application=NOS.COOPS.TAC.WL&date=today&datum=MLLW&station=9410230&time_zone=lst_ldt&units=english&interval=hilo&format=json`), 
 (req, res, next) => {
 
   console.log('fetching all spots')
 
-  fetch(`https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=TAVG&limit=1000&stationid=GHCND:USW00023129&startdate=2019-01-01&enddate=2020-1-1, ${headers={'token':Token}}`)
+
+  fetch(`https://tidesandcurrents.noaa.gov//api/datagetter?product=predictions&application=NOS.COOPS.TAC.WL&date=today&datum=MLLW&station=9410230&time_zone=lst_ldt&units=english&interval=hilo&format=json`)
   .then( (response) => {
     return response.json()
   }).then( (json) => {
@@ -41,22 +41,24 @@ router.get(fetch(`https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&
 
 
 // // these our proxy routes
-// router.get('/proxy/spot/all', (req, res, next) => {
+router.get('/proxy/spot/all', (req, res, next) => {
 
-//   console.log('fetching all spots')
+  console.log('fetching all spots')
 
-//   fetch('http://api.spitcast.com/api/spot/all').then( (response) => {
-//     return response.json()
-//   }).then( (json) => {
-//     //console.log(json)
-//     res.json(json)
-//   }).catch( (e) => {
-//     res.json({
-//       error : true,
-//       error_message : e
-//     })
-//   })
-// })
+  fetch('https://tidesandcurrents.noaa.gov//api/datagetter?product=predictions&application=NOS.COOPS.TAC.WL&date=today&datum=MLLW&station=9410230&time_zone=lst_ldt&units=english&interval=hilo&format=json').then( (response) => {
+    return response.json()
+  }).then( (json) => {
+    //console.log(json)
+    res.json(json)
+  }).catch( (e) => {
+    res.json({
+      error : true,
+      error_message : e
+    })
+  })
+})
+
+
 // router.get('/proxy/spot/:id', (req, res, next) => {
 //   console.log("I am here", req.params.id)
 //   fetch('http://api.spitcast.com/api/spot/forecast/' + req.params.id).then( (response) => {

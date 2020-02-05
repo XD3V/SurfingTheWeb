@@ -6,6 +6,7 @@ import NoMatch from "./pages/noMatch";
 import NavBar from './components/Navbar/NavBarBK'
 import Footer from './components/Footer/NewFooter'
 import Register from './pages/register'
+import laJolla from './pages/laJolla';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/home/login" component={Login} />
           <Route exact path="/home/register" component={Register} />
+          <Route exact path="/home/detail" component={laJolla} />
           <Route component={NoMatch} />
         </Switch>
       </main>

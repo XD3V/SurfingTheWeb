@@ -1,23 +1,41 @@
 import React from 'react';
 import './style.css';
 
-export const Cards = props => {
+// export const Cards = props => {
+//   return (
+//     <div className='card text-center shadow'>
+
+//       <div className='card-body text-dark'>
+//         <h4 className='card-title'>{props.title}</h4>
+//         <p className='card-text text-secondary'>
+//           {props.county}
+//         </p>
+//         <a href={'/home/detail/' + props.id} className='btn btn-outline-success'>
+//           Go To Beach
+//           </a>
+
+//       </div>
+//     </div>
+//   );
+// };
+
+
+
+export const Card = props => {
   return (
     <div className='card text-center shadow'>
 
       <div className='card-body text-dark'>
-        <h4 className='card-title'>{props.title}</h4>
-        <p className='card-text text-secondary'>
-          {props.county}
-        </p>
-        <a href={'/home/detail/' + props.spot_id} className='btn btn-outline-success'>
-          Go To Beach
-          </a>
+      <h1 className='card-title'>{props.title}</h1>
 
+         <h4 className='card-title'>Time:{props.time}</h4>
+        <h4 className='card-title'>Height:{props.height}  ft</h4>
+        <h4 className='card-title'>Type:{props.type}</h4>
       </div>
     </div>
   );
 };
+
 
 // export const Card = props => {
 //   return (

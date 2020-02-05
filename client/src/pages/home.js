@@ -1,34 +1,18 @@
 import React, { Component } from "react";
-import Card from "../components/Card/Cards";
-
-
-
-
+import {Card} from "../components/Card/index";
 class Home extends Component {
-
     // constructor(props){
     //     super(props)
     // }
-
-
   render() {
-
     return (
-
        <>
-
        <Card  />
-
        </>
-
     );
   }
 }
-
 export default Home;
-
-
-
 // import React, { Component } from "react";
 // import Cards from "../components/Card/Cards";
 // import api from '../api';
@@ -47,11 +31,8 @@ export default Home;
 //         fetch('/api/spot/all')
 //             .then(res => res.json())
 //             .then(json => {
-
 //                 let items_array = []
-
 //                 for (let i = 0; i < json.length; i++) {
-
 //                     if (this.pre_approved_spots.includes(json[i].spot_id)) {
 //                         let newObj = {
 //                             county_name: json[i].county_name,
@@ -65,15 +46,10 @@ export default Home;
 //                     } else {
 //                         // ignore this spot
 //                     }
-
-
 //                 }
 //             })
 //     }
-
-
 //     render() {
-
 //         return (
 //             <>
 //                 <Cards
